@@ -36,9 +36,10 @@ function hastToVNode(node: Hast.Nodes, options?: HastToVNodeOptions): VNodeChild
     case 'root':
       return node.children.map((child, index) => renderChild(child, { key: index }))
     case 'element': {
+      const { className, ...props } = node.properties
       return h(
         node.tagName,
-        { ...node.properties, key: options?.key, ref: options?.ref },
+        { ...props, class: className, key: options?.key, ref: options?.ref },
         node.children.map((child, index) => renderChild(child, { key: index })),
       )
     }
