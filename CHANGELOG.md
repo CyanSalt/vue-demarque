@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.2](https://github.com/CyanSalt/vue-demarque/compare/v0.1.1...v0.1.2) (2026-09-10)
+
+### Bug Fixes
+
+* make plugins work ([10142bd](https://github.com/CyanSalt/vue-demarque/commit/10142bdba6603209c80ee4b9bbbb09946c6c4162))
+
 ## [0.1.1](https://github.com/CyanSalt/vue-demarque/compare/v0.1.0...v0.1.1) (2026-09-10)
 
 ### Bug Fixes
