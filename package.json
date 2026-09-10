@@ -1,0 +1,86 @@
+{
+  "name": "vue-demarque",
+  "version": "0.1.0-0",
+  "description": "Content renderer for Vue",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint --fix './**/*.{js,mjs,ts}'",
+    "lint:ci": "eslint --max-warnings 0 './**/*.{js,mjs,ts}'",
+    "prepack": "tsdown",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyanSalt/vue-demarque.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CyanSalt/vue-demarque/issues"
+  },
+  "homepage": "https://github.com/CyanSalt/vue-demarque#readme",
+  "keywords": [
+    "vue",
+    "markdown"
+  ],
+  "author": "CyanSalt",
+  "license": "ISC",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.15.0",
+      "onFail": "error"
+    },
+    "packageManager": [
+      {
+        "name": "pnpm",
+        "version": "^11.0.0",
+        "onFail": "ignore"
+      },
+      {
+        "name": "npm",
+        "onFail": "ignore"
+      }
+    ]
+  },
+  "dependencies": {
+    "@types/hast": "^3.0.5",
+    "@types/katex": "^0.16.8",
+    "@vueuse/core": "^14.4.0",
+    "katex": "^0.18.7",
+    "mermaid": "^11.17.2",
+    "rehype-external-links": "^3.0.0",
+    "rehype-raw": "^7.0.0",
+    "remark": "^15.0.1",
+    "remark-custom-header-id": "^1.0.0",
+    "remark-definition-list": "^2.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
+    "remark-rehype": "^11.1.2",
+    "shiki": "^4.4.3",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.1.0",
+    "vue": "^3.5.42"
+  },
+  "devDependencies": {
+    "@cyansalt/eslint-config": "^4.6.0",
+    "@cyansalt/tsconfig": "^3.0.2",
+    "@release-it/conventional-changelog": "^12.0.0",
+    "eslint": "^10.10.0",
+    "release-it": "^21.0.2",
+    "tsdown": "^0.23.0",
+    "typescript": "^6.0.3",
+    "unplugin-vue": "^7.2.0",
+    "vue-tsc": "^3.3.11"
+  }
+}
