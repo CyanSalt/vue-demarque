@@ -55,10 +55,10 @@ function rehypeIntegrations() {
             defineHastVueRenderFunction(
               node,
               properties.lang === 'mermaid'
-                ? (self, props) => {
+                ? (self, { key, ref }) => {
                   return h(Suspense, null, {
-                    default: () => h(MermaidRenderer, { ...props, content: properties.value }),
-                    fallback: () => h(CodeBlock, { ...props, content: properties.value, lang: 'mermaid' }),
+                    default: () => h(MermaidRenderer, { key, ref, content: properties.value }),
+                    fallback: () => h(CodeBlock, { key, ref, content: properties.value, lang: 'mermaid' }),
                   });
                 }
                 : (self, props) => h(CodeBlock, {
@@ -69,15 +69,15 @@ function rehypeIntegrations() {
             );
             break;
           case 'inlineMath':
-            defineHastVueRenderFunction(node, (self, props) => h(Suspense, null, {
-              default: () => h(KatexRenderer, { ...props, content: properties.value, inline: true }),
-              fallback: () => h('code', props, properties.value),
+            defineHastVueRenderFunction(node, (self, { key, ref }) => h(Suspense, null, {
+              default: () => h(KatexRenderer, { key, ref, content: properties.value, inline: true }),
+              fallback: () => h('code', { key, ref }, properties.value),
             }));
             break;
           case 'math':
-            defineHastVueRenderFunction(node, (self, props) => h(Suspense, null, {
-              default: () => h(KatexRenderer, { ...props, content: properties.value }),
-              fallback: () => h(CodeBlock, { ...props, content: properties.value, lang: 'tex' }),
+            defineHastVueRenderFunction(node, (self, { key, ref }) => h(Suspense, null, {
+              default: () => h(KatexRenderer, { key, ref, content: properties.value }),
+              fallback: () => h(CodeBlock, { key, ref, content: properties.value, lang: 'tex' }),
             }));
             break;
         }
