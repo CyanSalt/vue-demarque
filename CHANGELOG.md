@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3](https://github.com/CyanSalt/vue-demarque/compare/v0.1.2...v0.1.3) (2026-09-10)
+
+### Bug Fixes
+
+* vnode class ([98dfd97](https://github.com/CyanSalt/vue-demarque/commit/98dfd97c2625eb3f500fa93706aaeb4d752007b2))
+
 ## [0.1.2](https://github.com/CyanSalt/vue-demarque/compare/v0.1.1...v0.1.2) (2026-09-10)
 
 ### Bug Fixes
