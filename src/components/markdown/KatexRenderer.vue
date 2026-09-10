@@ -26,5 +26,5 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <component :is="as" ref="container"></component>
+  <component :is="as" ref="container" class="math"></component>
 </template>

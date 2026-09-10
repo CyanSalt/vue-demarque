@@ -107,6 +107,8 @@ const { elements, templateRef } = useHastTemplateRefs(hast)
 }
 ```
 
+Similarly, elements rendered by `CodeBlock` and `PlainCodeBlock` both have the `.code-block` selector, while elements rendered by `KatexRenderer` have the `.math` selector.
+
 ## Customization
 
 You can use `defineMarkdownRendererCustomization` if you want to customize how specific hast nodes are rendered.
