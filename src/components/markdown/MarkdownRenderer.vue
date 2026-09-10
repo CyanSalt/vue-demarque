@@ -122,6 +122,7 @@ const hast = computedAsync(async () => {
     .use(remarkMath)
     .parse(content.slice(0, Math.round(transitionLength.value)));
   return remark()
+    .use(config.value.plugins ?? [])
     .use(remarkCustomHeaderId, Boolean(html))
     .use(remarkRehype, {
       allowDangerousHtml: html,
@@ -154,7 +155,6 @@ const hast = computedAsync(async () => {
       rel: ['nofollow noopener noreferrer'],
     })
     .use(rehypeIntegrations)
-    .use(config.value.plugins ?? [])
     .use(rehypeCustomize, config.value.customizations ?? [])
     .run(mdast);
 });
