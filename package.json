@@ -1,6 +1,6 @@
 {
   "name": "vue-demarque",
-  "version": "0.1.0-0",
+  "version": "0.1.0",
   "description": "Content renderer for Vue",
   "type": "module",
   "main": "./dist/index.mjs",
