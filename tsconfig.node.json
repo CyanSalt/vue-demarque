@@ -5,6 +5,7 @@
   },
   "include": [
     "tests",
+    "*.config.js",
     "*.config.ts"
   ],
   "references": [
