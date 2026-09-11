@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.5](https://github.com/CyanSalt/vue-demarque/compare/v0.1.4...v0.1.5) (2026-09-11)
+
+### Bug Fixes
+
+* template refs order ([d65b0cd](https://github.com/CyanSalt/vue-demarque/commit/d65b0cd3706d77d9ed6604e13287bdd969c39b03))
+
 ## [0.1.4](https://github.com/CyanSalt/vue-demarque/compare/v0.1.3...v0.1.4) (2026-09-10)
 
 ### Bug Fixes
