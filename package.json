@@ -16,8 +16,8 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint --fix './**/*.{js,ts}'",
-    "lint:ci": "eslint --max-warnings 0 './**/*.{js,ts}'",
+    "lint": "eslint --fix './**/*.{js,ts,vue}'",
+    "lint:ci": "eslint --max-warnings 0 './**/*.{js,ts,vue}'",
     "prepack": "tsdown",
     "release": "release-it"
   },

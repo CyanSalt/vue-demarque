@@ -1,29 +1,29 @@
 <script lang="ts" setup>
-import { computedAsync } from '@vueuse/core';
-import type { BundledLanguage } from 'shiki';
-import { bundledLanguages, codeToHast } from 'shiki';
-import { HastRenderer } from '../markdown/HastRenderer';
-import PlainCodeBlock from './PlainCodeBlock.vue';
+import { computedAsync } from '@vueuse/core'
+import type { BundledLanguage } from 'shiki'
+import { bundledLanguages, codeToHast } from 'shiki'
+import { HastRenderer } from '../markdown/HastRenderer'
+import PlainCodeBlock from './PlainCodeBlock.vue'
 
 export interface CodeContext {
-  filePath?: string;
+  filePath?: string,
 }
 
 const {
   content,
   lang,
 } = defineProps<{
-  content: string;
-  lang?: string;
-}>();
+  content: string,
+  lang?: string,
+}>()
 
-const specialLanguages = ['ansi'];
+const specialLanguages = ['ansi']
 
 const hast = computedAsync(async () => {
   const bundledLanguageName = lang && (lang in bundledLanguages || specialLanguages.includes(lang))
     ? lang as BundledLanguage
-    : undefined;
-  if (!bundledLanguageName) return undefined;
+    : undefined
+  if (!bundledLanguageName) return undefined
   const root = await codeToHast(content, {
     lang: bundledLanguageName,
     themes: {
@@ -31,10 +31,10 @@ const hast = computedAsync(async () => {
       dark: 'material-theme-palenight',
     },
     defaultColor: 'light-dark()',
-  });
+  })
   // Omit root fragment to inherit attrs
-  return root.children[0];
-});
+  return root.children[0]
+})
 </script>
 
 <template>
