@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.6](https://github.com/CyanSalt/vue-demarque/compare/v0.1.5...v0.1.6) (2026-09-14)
+
+### Bug Fixes
+
+* mermaid selector ([a1317d4](https://github.com/CyanSalt/vue-demarque/commit/a1317d4fa4c9f4b2203e5f9902463b429bd6422a))
+
 ## [0.1.5](https://github.com/CyanSalt/vue-demarque/compare/v0.1.4...v0.1.5) (2026-09-11)
 
 ### Bug Fixes
