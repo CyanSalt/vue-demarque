@@ -2,6 +2,7 @@
 import { computedAsync } from '@vueuse/core'
 import type { BundledLanguage } from 'shiki'
 import { bundledLanguages, codeToHast } from 'shiki'
+import { useShikiThemes } from '../../composables/shiki'
 import { HastRenderer } from '../markdown/HastRenderer'
 import PlainCodeBlock from './PlainCodeBlock.vue'
 
@@ -17,6 +18,8 @@ const {
   lang?: string,
 }>()
 
+const themes = useShikiThemes()
+
 const specialLanguages = ['ansi']
 
 const hast = computedAsync(async () => {
@@ -26,10 +29,7 @@ const hast = computedAsync(async () => {
   if (!bundledLanguageName) return undefined
   const root = await codeToHast(content, {
     lang: bundledLanguageName,
-    themes: {
-      light: 'material-theme-lighter',
-      dark: 'material-theme-palenight',
-    },
+    themes: themes.value,
     defaultColor: 'light-dark()',
   })
   // Omit root fragment to inherit attrs

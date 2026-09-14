@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { computedAsync, useDark } from '@vueuse/core'
-import { bundledThemes } from 'shiki'
 import { computed } from 'vue'
+import { useShikiThemeRegistration } from '../../composables/shiki'
 
 const {
   content,
@@ -9,17 +8,7 @@ const {
   content: string,
 }>()
 
-const isDark = useDark()
-
-const themeName = computed(() => {
-  return isDark.value ? 'material-theme-palenight' : 'material-theme-lighter'
-})
-
-const themeRegistration = computedAsync(async () => {
-  const bundled = bundledThemes[themeName.value]
-  const { default: registration } = await bundled()
-  return registration
-})
+const themeRegistration = useShikiThemeRegistration()
 
 const fallbackStyle = computed(() => {
   const registration = themeRegistration.value
