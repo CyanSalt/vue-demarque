@@ -107,7 +107,7 @@ const { elements, templateRef } = useHastTemplateRefs(hast)
 }
 ```
 
-Similarly, elements rendered by `CodeBlock` and `PlainCodeBlock` both have the `.code-block` selector, while elements rendered by `KatexRenderer` have the `.math` selector.
+Similarly, elements rendered by `CodeBlock` and `PlainCodeBlock` both have the `.code-block` selector, while elements rendered by `KatexRenderer` have the `.math` selector and elements rendered by `MermaidRenderer` have the `.mermaid` selector.
 
 ## Customization
 
