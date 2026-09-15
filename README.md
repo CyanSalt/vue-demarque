@@ -114,7 +114,12 @@ Similarly, elements rendered by `CodeBlock` and `PlainCodeBlock` both have the `
 You can use `defineMarkdownRendererCustomization` if you want to customize how specific hast nodes are rendered.
 
 ```ts
-import { defineMarkdownRendererCustomization, useMarkdownRendererConfig } from 'vue-demarque'
+import {
+  defineMarkdownRendererCustomization,
+  getHastVueProps,
+  renderHastChildren,
+  useMarkdownRendererConfig,
+} from 'vue-demarque'
 
 useMarkdownRendererConfig({
   customizations: [
@@ -123,11 +128,11 @@ useMarkdownRendererConfig({
         return node.type === 'element'
           && node.tagName === 'h2';
       },
-      render: (node, { key, ref, render }) => {
+      render: (node, ctx) => {
         return h(
           MyHeadingElement,
-          { key, ref, ...node.properties },
-          node.children.map((child, index) => render(child, { key: index })),
+          getHastVueProps(node, ctx),
+          () => renderHastChildren(node, ctx),
         );
       },
     }),

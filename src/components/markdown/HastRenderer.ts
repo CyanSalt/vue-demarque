@@ -26,6 +26,24 @@ declare module 'hast' {
   }
 }
 
+export function getHastVueProps(
+  element: Hast.Element,
+  ctx: HastVueRenderContext,
+) {
+  const { key, ref } = ctx
+  const { className, ...props } = element.properties
+  return { ...props, class: className, key, ref }
+}
+
+export function renderHastChildren(
+  element: Hast.Root | Hast.Element,
+  ctx: HastVueRenderContext,
+) {
+  const { render } = ctx
+  return (element.children as (Hast.RootContent | Hast.ElementContent)[])
+    .map((child, index) => render(child, { key: index }))
+}
+
 function hastToVNode(node: Hast.Nodes, options?: HastToVNodeOptions): VNodeChild {
   const renderChild = (child: Hast.Nodes, opts?: HastToVNodeOptions) => hastToVNode(child, { ...options, ...opts })
   const render = node.data?.vue
@@ -33,14 +51,16 @@ function hastToVNode(node: Hast.Nodes, options?: HastToVNodeOptions): VNodeChild
     return render(node, { key: options?.key, ref: options?.ref, render: renderChild })
   }
   switch (node.type) {
-    case 'root':
-      return node.children.map((child, index) => renderChild(child, { key: index }))
+    case 'root': {
+      const ctx: HastVueRenderContext = { key: options?.key, ref: options?.ref, render: renderChild }
+      return renderHastChildren(node, ctx)
+    }
     case 'element': {
-      const { className, ...props } = node.properties
+      const ctx: HastVueRenderContext = { key: options?.key, ref: options?.ref, render: renderChild }
       return h(
         node.tagName,
-        { ...props, class: className, key: options?.key, ref: options?.ref },
-        node.children.map((child, index) => renderChild(child, { key: index })),
+        getHastVueProps(node, ctx),
+        () => renderHastChildren(node, ctx),
       )
     }
     case 'comment':
