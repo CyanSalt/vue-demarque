@@ -42,7 +42,7 @@ const title = computed(() => {
 <template>
   <blockquote
     :class="[
-      'prose-off my-4 border-s-4 mt-2 ps-4 [&_p]:my-0!',
+      'prose-off my-4 border-s-4 ps-4 [&_p]:my-0!',
       { 'border-info': type === 'note' },
       { 'border-success': type === 'tip' },
       { 'border-primary': type === 'important' },
