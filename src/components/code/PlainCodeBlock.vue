@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useShikiThemeRegistration } from '../../composables/shiki'
+import { useHighlighterThemeRegistration } from '../../composables/highlighter'
 
 const {
   content,
@@ -8,7 +8,7 @@ const {
   content: string,
 }>()
 
-const themeRegistration = useShikiThemeRegistration()
+const themeRegistration = useHighlighterThemeRegistration()
 
 const fallbackStyle = computed(() => {
   const registration = themeRegistration.value

@@ -2,7 +2,7 @@
 import { computedAsync } from '@vueuse/core'
 import type { BundledLanguage } from 'shiki'
 import { bundledLanguages, codeToHast } from 'shiki'
-import { useShikiThemes } from '../../composables/shiki'
+import { useHighlighterThemes } from '../../composables/highlighter'
 import { HastRenderer } from '../markdown/HastRenderer'
 import PlainCodeBlock from './PlainCodeBlock.vue'
 
@@ -18,7 +18,7 @@ const {
   lang?: string,
 }>()
 
-const themes = useShikiThemes()
+const themes = useHighlighterThemes()
 
 const specialLanguages = ['ansi']
 

@@ -41,7 +41,7 @@ export function defineMarkdownRendererCustomization<
 
 const markdownRendererConfig: InjectionKey<Ref<MarkdownRendererConfig>> = Symbol('markdownRendererConfig')
 
-export const useMarkdownRendererConfig = useExtensibleContext<MarkdownRendererConfig>(markdownRendererConfig, {
+export const useMarkdownRendererConfig = useExtensibleContext(markdownRendererConfig, {
   default: () => ({
     customizations: [],
   }),
