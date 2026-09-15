@@ -5,8 +5,11 @@
   },
   "include": [
     "tests",
-    "*.config.js",
-    "*.config.ts"
+    "**/*.config.js",
+    "**/*.config.ts"
+  ],
+  "exclude": [
+    "**/node_modules"
   ],
   "references": [
     { "path": "./tsconfig.lib.json" }

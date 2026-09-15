@@ -1,0 +1,17 @@
+{
+  "extends": "@cyansalt/tsconfig",
+  "compilerOptions": {
+    "composite": true,
+    "paths": {
+      "vue-demarque": ["../src"]
+    }
+  },
+  "include": [
+    "src",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ],
+  "references": [
+    { "path": "../tsconfig.lib.json" }
+  ]
+}

@@ -1,0 +1,158 @@
+@reference 'tailwindcss';
+
+@utility bg-default {
+  @apply bg-(--ui-bg);
+}
+@utility bg-muted {
+  @apply bg-(--ui-bg-muted);
+}
+@utility border-default {
+  @apply border-(--ui-border);
+}
+@utility border-accented {
+  @apply border-(--ui-border-accented);
+}
+@utility border-primary {
+  @apply border-(--ui-primary);
+}
+@utility border-muted {
+  @apply border-(--ui-border-muted);
+}
+@utility text-default {
+  @apply text-(--ui-text);
+}
+@utility text-primary {
+  @apply text-(--ui-primary);
+}
+@utility text-muted {
+  @apply text-(--ui-text-muted);
+}
+@utility ring-accented {
+  @apply ring-(--ui-border-accented);
+}
+
+.prose {
+  @apply wrap-break-word;
+}
+.prose p {
+  @apply my-4 leading-7 whitespace-pre-line [text-autospace:normal];
+}
+.prose blockquote:not(.prose-off) {
+  @apply my-4 border-s-4 border-accented text-muted mt-2 ps-4;
+}
+.prose h1 {
+  @apply mb-6 text-3xl sm:text-4xl font-bold;
+}
+.prose h2 {
+  @apply border-t border-default pt-6 mt-12 mb-4 text-2xl font-bold;
+}
+.prose h3 {
+  @apply mt-8 mb-4 text-lg font-bold;
+}
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply mt-6 mb-4 font-bold;
+}
+.prose code:not(pre > code) {
+  @apply px-1.5 py-0.5 text-sm font-mono font-medium rounded-md border border-muted bg-muted;
+}
+.prose pre {
+  @apply my-4 text-sm/6 border border-muted rounded-md px-4 py-3 overflow-auto;
+}
+.prose img,
+.prose picture,
+.prose video {
+  @apply my-4 object-contain;
+}
+.prose-image {
+  @apply object-contain;
+}
+.prose picture > img {
+  @apply my-0;
+}
+.prose ol {
+  @apply my-4 list-decimal ps-6 marker:text-muted;
+}
+.prose ul {
+  @apply my-4 list-disc ps-6 marker:text-muted;
+}
+.prose li {
+  @apply my-1.5 ps-1.5 leading-7 [&>ul]:my-0;
+}
+.prose li p {
+  @apply my-1.5;
+}
+.prose ul ul,
+.prose ul ol,
+.prose ol ul,
+.prose ol ol {
+  @apply my-1.5;
+}
+.prose li.task-list-item {
+  @apply -ms-6 flex gap-1.5 items-center;
+}
+.prose hr {
+  @apply border-default my-6;
+}
+.prose table {
+  @apply w-fit border-separate border-spacing-0 rounded-md;
+}
+.prose tr {
+  @apply [&:first-child>th:first-child]:rounded-tl-md [&:first-child>th:last-child]:rounded-tr-md [&:last-child>td:first-child]:rounded-bl-md [&:last-child>td:last-child]:rounded-br-md;
+}
+.prose th {
+  @apply px-4 py-3 text-left border-e border-b first:border-s border-muted font-semibold border-t bg-muted;
+}
+.prose td {
+  @apply px-4 py-3 text-left border-e border-b first:border-s border-muted align-top;
+}
+.doc td p {
+  @apply first:mt-0 last:mb-0;
+}
+.prose a:not(.prose-off) {
+  @apply text-primary border-b border-transparent hover:border-primary font-medium focus-visible:border-primary [&>code]:border-dashed hover:[&>code]:border-primary hover:[&>code]:text-primary transition-colors [&>code]:transition-colors;
+}
+.prose sup a {
+  @apply text-default hover:border-default;
+}
+.prose dl {
+  @apply my-4;
+}
+.prose dl dt,
+.prose dl dd {
+  @apply my-1.5;
+}
+.prose dt {
+  @apply font-bold;
+}
+.prose dd {
+  @apply ps-6;
+}
+.prose dd p {
+  @apply my-1.5;
+}
+.prose .footnotes {
+  @apply my-4 border-s-4 border-accented text-muted mt-2 ps-4;
+}
+.prose > :first-child {
+  @apply mt-0;
+}
+.prose > :last-child {
+  @apply mb-0;
+}
+.code-block {
+  @apply text-sm/6 border border-muted rounded-md px-4 py-3 overflow-auto;
+}
+.prose div.math {
+  @apply my-4;
+}
+.prose kbd {
+  @apply inline-flex items-center justify-center px-1 rounded-sm font-sans font-medium uppercase h-5 min-w-[20px] text-[11px] ring ring-inset ring-accented text-default bg-default;
+}
+.prose .mermaid {
+  @apply my-4;
+}
+.prose .mermaid > svg {
+  @apply mx-auto;
+}
